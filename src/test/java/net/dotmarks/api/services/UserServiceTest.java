@@ -22,7 +22,7 @@ public class UserServiceTest {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Before
 	public void setUp() throws Exception {
-		String cassandraNode = System.getProperty("C1");
+		String cassandraNode = System.getenv("C1");
 		
 		System.out.println("cassandraNode: " + cassandraNode);
 	    
