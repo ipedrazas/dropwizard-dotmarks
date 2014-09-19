@@ -18,12 +18,11 @@ public class DotmarksServiceTest {
 	Cluster cluster;
 	DotmarksService s;
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Before
 	public void setUp() throws Exception {
-		String cassandraNode = System.getenv("C1");
+		String cassandraNode = System.getenv("C1_PORT_22_TCP_ADDR");
 		if(cassandraNode == null){
-			cassandraNode = System.getProperty("C1");
+			cassandraNode = System.getProperty("C1_PORT_22_TCP_ADDR");
 		}
 	    
 		cluster = Cluster.builder()

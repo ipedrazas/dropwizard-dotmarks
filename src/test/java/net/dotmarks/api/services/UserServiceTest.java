@@ -2,9 +2,7 @@ package net.dotmarks.api.services;
 
 import static org.junit.Assert.assertTrue;
 
-import java.io.FileReader;
 import java.util.List;
-import java.util.Map;
 
 import net.dotmarks.api.om.User;
 
@@ -12,19 +10,17 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.datastax.driver.core.Cluster;
-import com.esotericsoftware.yamlbeans.YamlReader;
 
 public class UserServiceTest {
 
 	Cluster cluster;
 	UsersService s;
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Before
 	public void setUp() throws Exception {
-		String cassandraNode = System.getenv("C1");
+		String cassandraNode = System.getenv("C1_PORT_22_TCP_ADDR");
 		if(cassandraNode == null){
-			cassandraNode = System.getProperty("C1");
+			cassandraNode = System.getProperty("C1_PORT_22_TCP_ADDR");
 		}
 		
 		System.out.println("cassandraNode: " + cassandraNode);
