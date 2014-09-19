@@ -2,9 +2,7 @@ package net.dotmarks.api.services;
 
 import static org.junit.Assert.assertTrue;
 
-import java.io.FileReader;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 import net.dotmarks.api.om.Dotmark;
@@ -14,7 +12,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.datastax.driver.core.Cluster;
-import com.esotericsoftware.yamlbeans.YamlReader;
 
 public class DotmarksServiceTest {
 
@@ -24,12 +21,10 @@ public class DotmarksServiceTest {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Before
 	public void setUp() throws Exception {
-//		YamlReader reader = new YamlReader(new FileReader("config.yml"));
-//
-//		Map map = (Map) reader.read();
-//	    Map cs = (Map) map.get("cassandra");
-//	    List<String> node = (List<String>) cs.get("contactPoints");
-	    String cassandraNode = System.getProperty("C1");
+		String cassandraNode = System.getenv("C1");
+		if(cassandraNode == null){
+			cassandraNode = System.getProperty("C1");
+		}
 	    
 		cluster = Cluster.builder()
 	            .addContactPoint(cassandraNode).build();

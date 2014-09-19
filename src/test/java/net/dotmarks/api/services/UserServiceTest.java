@@ -23,6 +23,9 @@ public class UserServiceTest {
 	@Before
 	public void setUp() throws Exception {
 		String cassandraNode = System.getenv("C1");
+		if(cassandraNode == null){
+			cassandraNode = System.getProperty("C1");
+		}
 		
 		System.out.println("cassandraNode: " + cassandraNode);
 	    
