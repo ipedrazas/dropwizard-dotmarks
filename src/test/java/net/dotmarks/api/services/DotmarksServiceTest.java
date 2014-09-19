@@ -24,14 +24,15 @@ public class DotmarksServiceTest {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Before
 	public void setUp() throws Exception {
-		YamlReader reader = new YamlReader(new FileReader("config.yml"));
-
-		Map map = (Map) reader.read();
-	    Map cs = (Map) map.get("cassandra");
-	    List<String> node = (List<String>) cs.get("contactPoints");
+//		YamlReader reader = new YamlReader(new FileReader("config.yml"));
+//
+//		Map map = (Map) reader.read();
+//	    Map cs = (Map) map.get("cassandra");
+//	    List<String> node = (List<String>) cs.get("contactPoints");
+	    String cassandraNode = System.getProperty("C1");
 	    
 		cluster = Cluster.builder()
-	            .addContactPoint(node.get(0)).build();
+	            .addContactPoint(cassandraNode).build();
 		s = new DotmarksService(cluster);
 	}
 

@@ -4,4 +4,4 @@ cassandra:
   clusterName: "minimal-cluster"
 # Only 1 IP is needed because of the self-discovery 
 # If you have an IP where there is no node, C* discards it
-  contactPoints: ["172.17.0.4"]
+  contactPoints: ["172.17.0.34"]

@@ -23,8 +23,5 @@ public class DotmarksConfiguration extends Configuration {
     public void setCassandraFactory(CassandraFactory cassandra) {
         this.cassandra = cassandra;
     }
-	
-	
-
-   
+	  
 }
