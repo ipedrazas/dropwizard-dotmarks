@@ -8,6 +8,11 @@
 -- docker run -it --rm --link c1:c1 -v /data/cassandra/scripts:/data poklet/cassandra cqlsh c1
 -- docker run -it --rm --link c2:c2 -v /data/cassandra/scripts:/data poklet/cassandra cqlsh c2
 -- docker run -it --rm --link c3:c3 -v /data/cassandra/scripts:/data poklet/cassandra cqlsh c3
+-- docker run -it --rm --link c1:c1 poklet/cassandra nodetool 
+-- docker run -d -p 8888:8888 --link c1:c1 -name opscenter poklet/opscenter
+-- docker run -it --rm --link c1:c1 poklet/cassandra nodetool removenode -h 172.17.0.4 72f2fbfa-7607-4eeb-bd88-1ec5e2a4da31
+-- docker run -it --rm --link c1:c1 poklet/cassandra nodetool flush -h 172.17.0.4 dotmarks users dotmarks dotmarksbyuser
+-- docker run -it --rm --link c1:c1 poklet/cassandra nodetool status -h 172.17.0.4 
 
 
 CREATE KEYSPACE dotmarks WITH REPLICATION =

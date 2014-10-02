@@ -47,7 +47,7 @@ public class DotmarksApplication extends Application<DotmarksConfiguration> {
         
         environment.jersey().register(new CasResource(cassandra));
         environment.jersey().register(new PingResource());
-        environment.jersey().register(new DotmarksResource(cassandra));
+        environment.jersey().register(new DotmarksResource(cassandra.connect()));
         environment.jersey().register(new UsersResource(cassandra));
 
         // HealthChecks
